@@ -1,6 +1,14 @@
 # install ohmyzsh
-echo "Installing ohmyzsh..."
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+cd $HOME || exit
+
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+	echo "Installing Oh My Zsh..."
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+else
+	echo "Oh My Zsh is already installed."
+fi
+
+cd $HOME || exit
 
 EXTRA="alias ssh=\"TERM=xterm-256color ssh\"
 alias lt=\"tree -L 1\"
@@ -23,4 +31,7 @@ alias cl=\"clear\"
 "
 
 echo "Adding custom configs to .zshrc..."
-echo -e "$EXTRA" >>"$HOME/.zshrc"
+echo -e "$EXTRA" >>./.zshrc
+echo export EDITOR=nvim >>./.zshrc
+echo export TERM=xterm-256color >>./.zshrc
+echo "Done."

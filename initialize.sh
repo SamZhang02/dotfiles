@@ -1,5 +1,7 @@
 #!/bin/bash
 
+brew bundle || exit
+
 for directory in ./*; do
 	if [ -d "$directory" ]; then
 		if [ -f "$directory/install.sh" ]; then
