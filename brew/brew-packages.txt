@@ -5,6 +5,7 @@ dlib
 docker
 dune
 elm
+fd
 gh
 git
 just
