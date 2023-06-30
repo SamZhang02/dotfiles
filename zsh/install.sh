@@ -1,4 +1,7 @@
 # install ohmyzsh
+repo_dir=$(cd .. && pwd)
+echo "repo directory: $repo_dir"
+
 cd $HOME || exit
 
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
@@ -14,10 +17,6 @@ EXTRA="alias ssh=\"TERM=xterm-256color ssh\"
 alias lt=\"tree -L 1\"
 alias cl=clear
 
-# personal paths
-export PATH=$PATH:$HOME/.dotfiles/bin
-export PATH=$PATH:$HOME/.local/bin
-
 alias v=\"nvim\"
 alias vim=\"nvim\"
 alias gf=\"git fetch\"
@@ -30,8 +29,12 @@ alias lt=\"tree -L 1\"
 alias cl=\"clear\" 
 "
 
+cd "$repo_dir" || exit
+
 echo "Adding custom configs to .zshrc..."
-echo -e "$EXTRA" >>./.zshrc
-echo export EDITOR=nvim >>./.zshrc
-echo export TERM=xterm-256color >>./.zshrc
+echo -e "$EXTRA" >>$HOME/.zshrc
+echo export EDITOR=nvim >>$HOME/.zshrc
+echo export TERM=xterm-256color >>$HOME/.zshrc
+echo "Adding $repo_dir/bin as path"
+echo "export PATH=\$PATH:$repo_dir/bin" >>$HOME/.zshrc
 echo "Done."
