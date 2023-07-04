@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#install brew packages
+cd brew || exit
 brew bundle || exit
 
 for directory in ./*; do
