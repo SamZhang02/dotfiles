@@ -1,8 +1,12 @@
 #!/bin/bash
 
+root_dir=$(pwd)
+
 #install brew packages
 cd brew || exit
 brew bundle || exit
+
+cd root_dir || exit
 
 for directory in ./*; do
 	if [ -d "$directory" ]; then
