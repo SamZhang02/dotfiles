@@ -1,0 +1,11 @@
+#!/bin/bash
+
+repo_path=$(pwd)
+
+cd "$HOME/repos/dotfiles/templates/" || exit
+
+cp CONTRIBUTING "$repo_path"
+cp .editorconfig "$repo_path"
+cp justfile "$repo_path"
+cp .env "$repo_path"
+cp .env.example "$repo_path"
