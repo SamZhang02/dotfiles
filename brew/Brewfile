@@ -29,6 +29,7 @@ brew "jesseduffield/lazygit/lazygit"
 brew "wget"
 brew "node"
 brew "zsh-autosuggestions"
+brew "poetry"
 
 cask "scroll-reverser"
 cask "arc"
